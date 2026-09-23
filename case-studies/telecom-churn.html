@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Excel customer analytics case study identifying churn drivers and retention opportunities across 7,043 telecom customers.">
+  <title>Telecom Customer Churn | Omodolapo Oladokun</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#case-content">Skip to case study</a>
+  <header class="site-header" data-header>
+    <div class="shell">
+      <div class="nav-wrap">
+        <a class="brand" href="../index.html">OO<span>.</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="case-nav" data-nav-toggle>
+          <span></span><span></span><span></span>
+          <span class="sr-only">Open navigation</span>
+        </button>
+        <nav id="case-nav" class="site-nav" data-nav>
+          <a href="../index.html#work">All work</a>
+          <a href="../index.html#about">About</a>
+          <a class="nav-cta" href="https://github.com/omodolapoladokun/Telecom-Customer-Churn-Analysis" target="_blank" rel="noreferrer">Repository ↗</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="case-hero shell reveal">
+      <a class="back-link" href="../index.html#work">← Back to selected work</a>
+      <p class="eyebrow">Excel · Customer analytics</p>
+      <h1>Telecom Customer Churn Analysis</h1>
+      <div class="case-intro">
+        <p>Which customers were most likely to leave, which factors were associated with attrition and where could management intervene to improve retention?</p>
+        <div class="case-tools"><span>Excel</span><span>PivotTables</span><span>Customer analytics</span></div>
+      </div>
+      <div class="case-cover">
+        <div class="browser-bar" style="width: 100%; border-radius: 4px 4px 0 0; margin-bottom: 20px;">
+          <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+          <span class="browser-url">telecom-churn-analytics.xlsx</span>
+        </div>
+        <img src="../assets/images/telecom-churn-dashboard.png" alt="Excel customer churn dashboard showing churn rate and customer patterns">
+      </div>
+    </section>
+
+    <div class="case-body shell" id="case-content">
+      <aside class="case-sidebar">
+        <p>On this page</p>
+        <a href="#problem">Problem</a>
+        <a href="#approach">Approach</a>
+        <a href="#findings">Findings</a>
+        <a href="#profile">Risk profile</a>
+        <a href="#recommendations">Recommendations</a>
+      </aside>
+      <article class="case-content">
+        <section id="problem">
+          <p class="eyebrow">01 · The problem</p>
+          <h2>More than one in four customers had left.</h2>
+          <p>Customer churn reduces recurring revenue and raises the acquisition pressure required to replace lost customers. The analysis broke attrition into contract, billing, tenure and service factors so management could see where retention effort might be most useful.</p>
+          <div class="metric-grid">
+            <div class="metric"><strong>7,043</strong><span>Total customers</span></div>
+            <div class="metric"><strong>1,869</strong><span>Churned customers</span></div>
+            <div class="metric"><strong>26.5%</strong><span>Overall churn rate</span></div>
+          </div>
+        </section>
+        <section id="approach">
+          <p class="eyebrow">02 · The approach</p>
+          <h2>Segment the rate until an actionable pattern appears.</h2>
+          <p>Twenty-one customer, service and billing variables were analysed. Rather than stopping at the overall churn percentage, the project compared attrition across contract types, monthly charges, payment methods, customer tenure and support-service adoption.</p>
+        </section>
+        <section id="findings">
+          <p class="eyebrow">03 · Key findings</p>
+          <h2>The strongest signals were commercially actionable.</h2>
+          <h3>Contract and tenure</h3>
+          <p>Month-to-month customers recorded the highest churn, while early-tenure customers were particularly vulnerable.</p>
+          <h3>Charges and payments</h3>
+          <p>Higher monthly charges were associated with stronger churn patterns, especially among month-to-month customers. Electronic Check users also recorded the highest churn among payment methods.</p>
+          <h3>Support adoption</h3>
+          <p>Customers without Technical Support and related value-added services churned more frequently, suggesting a possible connection between experienced value, problem resolution and retention.</p>
+          <div class="insight">
+            <strong>Important caveat</strong>These variables are associated with churn in the dataset. Payment method or support status should not be treated as a proven standalone cause.
+          </div>
+        </section>
+        <section id="profile">
+          <p class="eyebrow">04 · High-risk profile</p>
+          <h2>A practical group for proactive monitoring.</h2>
+          <p>The strongest combined risk pattern was:</p>
+          <div class="insight">
+            <strong>New customer + Month-to-month contract + High monthly charges + Electronic Check + No Technical Support</strong>This profile gives the business a more focused group for testing retention interventions before cancellation occurs.
+          </div>
+        </section>
+        <section id="recommendations">
+          <p class="eyebrow">05 · Recommendations</p>
+          <h2>Prioritise controllable points in the customer journey.</h2>
+          <ul>
+            <li>Test suitable incentives for profitable month-to-month customers to adopt longer-term contracts.</li>
+            <li>Review the value delivered by high-charge packages instead of assuming price alone is the problem.</li>
+            <li>Strengthen onboarding and proactive support during the early customer lifecycle.</li>
+            <li>Test whether improving support-service adoption changes retention outcomes.</li>
+            <li>Encourage lower-friction payment options as part of a broader programme, then measure the result.</li>
+          </ul>
+        </section>
+      </article>
+    </div>
+    <section class="case-cta">
+      <div class="shell">
+        <p class="eyebrow">Verify the work</p>
+        <h2>Explore the workbook, dashboard pages and full report.</h2>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://github.com/omodolapoladokun/Telecom-Customer-Churn-Analysis" target="_blank" rel="noreferrer">Open repository ↗</a>
+          <a class="button button-secondary" href="weather-etl.html">Next case study →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell"><span>© <span data-year></span> Omodolapo Oladokun</span><a href="../index.html">Portfolio home</a></div>
+  </footer>
+</body>
+</html>

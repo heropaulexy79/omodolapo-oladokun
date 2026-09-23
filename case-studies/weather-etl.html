@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Python ETL case study using the OpenWeather API, Pandas and CSV storage.">
+  <title>Weather ETL Pipeline | Omodolapo Oladokun</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#case-content">Skip to case study</a>
+  <header class="site-header" data-header>
+    <div class="shell">
+      <div class="nav-wrap">
+        <a class="brand" href="../index.html">OO<span>.</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="case-nav" data-nav-toggle>
+          <span></span><span></span><span></span>
+          <span class="sr-only">Open navigation</span>
+        </button>
+        <nav id="case-nav" class="site-nav" data-nav>
+          <a href="../index.html#work">All work</a>
+          <a href="../index.html#about">About</a>
+          <a class="nav-cta" href="https://github.com/omodolapoladokun/Weather-ETL-Pipeline" target="_blank" rel="noreferrer">Repository ↗</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="case-hero shell reveal">
+      <a class="back-link" href="../index.html#work">← Back to selected work</a>
+      <p class="eyebrow">Python · API · ETL</p>
+      <h1>Weather ETL Pipeline</h1>
+      <div class="case-intro">
+        <p>How can current weather data be collected from an external service, transformed consistently and stored as reusable analysis-ready output?</p>
+        <div class="case-tools"><span>Python</span><span>Pandas</span><span>Requests</span><span>OpenWeather API</span></div>
+      </div>
+      <div class="case-cover dark">
+        <div class="code-window" style="width: min(100%, 780px);">
+          <div class="code-header">
+            <span class="code-tab">🐍 weather_pipeline.py</span>
+            <span>Python 3.11</span>
+          </div>
+          <pre><span class="code-kw">for</span> city <span class="code-kw">in</span> [<span class="code-str">"Lagos"</span>, <span class="code-str">"Ibadan"</span>, <span class="code-str">"Abuja"</span>]:
+    response = requests.get(url, params)
+    response.raise_for_status()
+    weather_records.append(transform(response.json()))
+
+weather_df = pd.DataFrame(weather_records)
+weather_df.to_csv(<span class="code-str">"weather_data.csv"</span>, index=<span class="code-kw">False</span>)</pre>
+        </div>
+      </div>
+    </section>
+
+    <div class="case-body shell" id="case-content">
+      <aside class="case-sidebar">
+        <p>On this page</p>
+        <a href="#objective">Objective</a>
+        <a href="#extract">Extract</a>
+        <a href="#transform">Transform</a>
+        <a href="#load">Load</a>
+        <a href="#quality">Quality</a>
+        <a href="#next">Next iteration</a>
+      </aside>
+      <article class="case-content">
+        <section id="objective">
+          <p class="eyebrow">01 · Objective</p>
+          <h2>A small pipeline demonstrating a complete data movement cycle.</h2>
+          <p>The project retrieves current conditions for Lagos, Ibadan and Abuja, selects the required variables, structures them with Pandas and writes the result to CSV. It focuses on a repeatable technical workflow rather than claiming that three current observations constitute a substantive weather study.</p>
+          <div class="metric-grid">
+            <div class="metric"><strong>3</strong><span>Nigerian cities</span></div>
+            <div class="metric"><strong>6</strong><span>Core weather fields</span></div>
+            <div class="metric"><strong>1</strong><span>Reusable output dataset</span></div>
+          </div>
+        </section>
+        <section id="extract">
+          <p class="eyebrow">02 · Extract</p>
+          <h2>Request live data safely.</h2>
+          <p>A loop sends a GET request to the OpenWeather current-weather endpoint for each city. Metric units are specified, unsuccessful HTTP responses trigger an error, and the API key is retrieved from Google Colab Secrets rather than embedded in the public notebook.</p>
+        </section>
+        <section id="transform">
+          <p class="eyebrow">03 · Transform</p>
+          <h2>Turn nested JSON into analytical rows.</h2>
+          <p>Each response is reduced to the fields required for analysis: city, temperature, humidity, condition, wind speed and timestamp. Dictionaries are collected into a list and converted into a Pandas DataFrame.</p>
+          <ul>
+            <li>Inspected structure and data types.</li>
+            <li>Checked missing values and duplicates.</li>
+            <li>Converted timestamps to Pandas datetime.</li>
+            <li>Created separate date and time fields.</li>
+            <li>Sorted observations by temperature and reset the index.</li>
+          </ul>
+        </section>
+        <section id="load">
+          <p class="eyebrow">04 · Load</p>
+          <h2>Persist the result for reuse.</h2>
+          <p>The transformed DataFrame is written to <code>weather_data.csv</code> without an unnecessary index column, then loaded back into Pandas to confirm successful storage.</p>
+        </section>
+        <section id="quality">
+          <p class="eyebrow">05 · Reliability choices</p>
+          <h2>Small details that prevent fragile pipelines.</h2>
+          <ul>
+            <li><code>raise_for_status()</code> prevents failed requests from silently entering the workflow.</li>
+            <li>Secrets management keeps credentials outside version control.</li>
+            <li>Explicit field selection produces a stable, analysis-focused schema.</li>
+            <li>Missing-value and duplicate checks create a basic data-quality gate.</li>
+          </ul>
+        </section>
+        <section id="next">
+          <p class="eyebrow">06 · Next iteration</p>
+          <h2>From demonstration to production-minded pipeline.</h2>
+          <p>A stronger version would schedule repeated collection, add retries and logging, preserve historical observations in a database, validate schemas, handle rate limits and attach automated tests. Those are genuine next steps; the current project should not be presented as a production pipeline.</p>
+        </section>
+      </article>
+    </div>
+    <section class="case-cta">
+      <div class="shell">
+        <p class="eyebrow">Verify the work</p>
+        <h2>Review the notebook, requirements and generated dataset.</h2>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://github.com/omodolapoladokun/Weather-ETL-Pipeline" target="_blank" rel="noreferrer">Open repository ↗</a>
+          <a class="button button-secondary" href="../index.html#work">Return to all work</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell"><span>© <span data-year></span> Omodolapo Oladokun</span><a href="../index.html">Portfolio home</a></div>
+  </footer>
+</body>
+</html>

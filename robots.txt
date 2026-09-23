@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://omodolapoladokun.github.io/sitemap.xml
